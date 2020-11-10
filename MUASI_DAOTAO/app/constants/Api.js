@@ -51,10 +51,7 @@ function handleResult(api) {
 
 export const requestLogin = payload => {
   return handleResult(
-    getAxios.post("api/Service/LoginApp", {
-      value: payload.value,
-      type: payload.type
-    })
+    getAxios.post('Login', payload)
   );
 };
 
@@ -63,10 +60,18 @@ export const requestHomeData = (deviceID = "") => {
     getAxios.get(`api/Service/GetHomeScreen?deviceID=${deviceID}`)
   );
 };
+<<<<<<< HEAD
 export const notifyData = (deviceID = "") => {
   return handleResult(
     getAxios.get(`GetHome`)
   );
 };
 
+=======
+export const requestUser = () => {
+  return handleResult(
+    getAxios.get('/GetUserInfo')
+  );
+};
+>>>>>>> e7adc64e9df61095aa7956578e278b7e23b699cd
 
