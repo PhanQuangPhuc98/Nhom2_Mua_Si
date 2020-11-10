@@ -48,9 +48,9 @@ const Main = createBottomTabNavigator(
     },
     [SCREEN_ROUTER.NOF]: {
       screen: NotificationScreen,
-      title: R.strings.user,
+      title: R.strings.notification,
       navigationOptions: {
-        tabBarLabel: R.strings.user
+        tabBarLabel: R.strings.notification
       }
     },
     [SCREEN_ROUTER.USER]: {
