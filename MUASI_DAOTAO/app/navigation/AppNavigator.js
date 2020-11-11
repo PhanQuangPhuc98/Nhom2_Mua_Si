@@ -9,6 +9,13 @@ import ForgotPasswordScreen from '../screens/auth/ForgotPasswordScreen';
 import HomeScreen from '@screen/HomeScreen';
 import UserScreen from '../screens/UserScreen';
 import NotificationScreen from '../screens/NotificationScreen';
+import UpdateUserinfoScreen from '@screen/UpdateUserinfoScreen';
+import PurchaseScreen from '@screen/PurchaseScreen'
+import ChangePasswordScreen from '@screen/ChangePasswordScreen'
+import DirectoryScreen from '@screen/DirectoryScreen'
+import InformationScreen from '@screen/InformationScreen'
+import LogoutScreen from '@screen/LogoutScreen'
+import UseManualScreen from '@screen/UseManualScreen';
 import { SCREEN_ROUTER } from '@constant';
 import R from '@R';
 import * as theme from '@theme';
@@ -87,16 +94,29 @@ const Main = createBottomTabNavigator(
     initialRouteName: 'User'
   }
 );
-
+const App = createStackNavigator({
+  [SCREEN_ROUTER.MAIN]: Main,
+  [SCREEN_ROUTER.UPDATE_USER_INFO]: UpdateUserinfoScreen,
+  [SCREEN_ROUTER.PURCHASE_SCREEN]: PurchaseScreen,
+  [SCREEN_ROUTER.INFORMATION_SCREEN]: InformationScreen,
+  [SCREEN_ROUTER.DIRECTORY_SCREEN]: DirectoryScreen,
+  [SCREEN_ROUTER.CHANGE_PASSWORD]: ChangePasswordScreen,
+  [SCREEN_ROUTER.USE_MANUAL_SCREEN]: UseManualScreen,
+  [SCREEN_ROUTER.LOGOUT_SCREEN]: LogoutScreen
+},
+  {
+    headerMode: 'none'
+  }
+)
 export default createAppContainer(
   createSwitchNavigator(
     {
       [SCREEN_ROUTER.AUTH_LOADING]: AuthLoadingScreen,
       [SCREEN_ROUTER.AUTH]: Auth,
-      [SCREEN_ROUTER.MAIN]: Main
+      [SCREEN_ROUTER.APP]: App,
     },
     {
-      initialRouteName: SCREEN_ROUTER.AUTH
+      initialRouteName: SCREEN_ROUTER.Auth
     }
   )
 );

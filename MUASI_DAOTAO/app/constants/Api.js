@@ -1,5 +1,6 @@
 import axios from "axios";
-import { AsyncStorage, Alert } from "react-native";
+import { Alert } from "react-native";
+import AsyncStorage from '@react-native-community/async-storage';//lưu dữ liệu xuống ổ cứng
 import NavigationUtil from "../navigation/NavigationUtil";
 import I18n from "../i18n/i18n";
 
@@ -54,15 +55,35 @@ export const requestLogin = payload => {
     getAxios.post('Login', payload)
   );
 };
-
-export const requestHomeData = (deviceID = "") => {
+export const requestRegister = payload => {
   return handleResult(
-    getAxios.get(`api/Service/GetHomeScreen?deviceID=${deviceID}`)
+    getAxios.post('Register', payload)
   );
 };
+
+export const requestHomeData = () => {
+  return handleResult(
+    getAxios.get(`/GetHome`)
+  );
+};
+
 export const requestUser = () => {
   return handleResult(
     getAxios.get('/GetUserInfo')
   );
 };
-
+export const UpdateUser = payload => {
+  return handleResult(
+    getAxios.post('/UpdateUser', payload)
+  );
+};
+export const Logout = () => {
+  return handleResult(
+    getAxios.get('/Logout')
+  );
+};
+export const ChangePass = payload => {
+  return handleResult(
+    getAxios.post('/ChangePass', payload)
+  )
+}
