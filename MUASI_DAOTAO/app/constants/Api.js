@@ -66,4 +66,9 @@ export const notifyData = (deviceID = "") => {
   );
 };
 
+export const requestUser = () => {
+  return handleResult(
+    getAxios.get('/GetUserInfo')
+  );
+};
 
