@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, ImageBackground, TextInput, TouchableOpacity, Image } from 'react-native'
 import { connect } from 'react-redux'
 import API from '@api'
-import Loading from '../components/Loading'
-
-
+import Loading from '@component/Loading'
 export class HomeScreen extends Component {
   state = {
     isLoading: true,
@@ -12,7 +10,6 @@ export class HomeScreen extends Component {
     data: {},
   }
   componentDidMount = async () => {
-
     try {
       const response = await axios.get('http://3.0.209.176/api/GetHome');
       const jsonResponse = response
@@ -32,15 +29,13 @@ export class HomeScreen extends Component {
       }, 5000)
     }
   }
-
   render() {
     const { isLoading, isError, data } = this.state
-    if (isLoading) {
-      return (
-        <Loading />
-      );
-
-    }
+    // if (isLoading) {
+    //   return (
+    //     <Loading />
+    //   );
+    // }
     if (isError) {
       return (
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -50,7 +45,9 @@ export class HomeScreen extends Component {
     }
     return (
       <SafeAreaView style={styles.container}>
-        <ImageBackground source={require('../assets/images/homeAssets/quan_ly_ton_kho.png')} style={styles.image}>
+        <ImageBackground
+          // source={require('../assets/images/homeAssets/quan_ly_ton_kho.png')} 
+          style={styles.image}>
           <Text style={styles.txtHeader}> Tôi muốn mua sỉ </Text>
           <View style={styles.searchKey}>
             <TextInput style={styles.TextInput}
@@ -59,7 +56,7 @@ export class HomeScreen extends Component {
             <TouchableOpacity style={styles.dropBox}>
               <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', }}>
                 <Text >Toàn quốc</Text>
-                <Image source={require('../assets/images/homeAssets/Icon-arrow-back.png')} />
+                {/* <Image source={require('../assets/images/homeAssets/Icon-arrow-back.png')} /> */}
               </View>
             </TouchableOpacity>
           </View>
@@ -117,7 +114,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   push: {
     marginTop: 14,
