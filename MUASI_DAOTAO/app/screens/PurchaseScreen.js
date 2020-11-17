@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation';
 import NavigationUtil from '@app/navigation/NavigationUtil'
 import RNHeader from '../components/WHeader';
 import R from '@R';
-
+import Purchases from '../components/Purchase'
 export default class Purchase extends Component {
     render() {
         return (
@@ -32,6 +32,9 @@ export default class Purchase extends Component {
 
                     }}
                 />
+                <Purchases>
+
+                </Purchases>
             </View>
         )
     }

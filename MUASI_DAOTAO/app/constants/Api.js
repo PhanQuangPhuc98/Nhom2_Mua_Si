@@ -66,6 +66,11 @@ export const requestHomeData = () => {
     getAxios.get(`/GetHome`)
   );
 };
+export const notifyData = (deviceID = "") => {
+  return handleResult(
+    getAxios.get(`GetHome`)
+  );
+};
 
 export const requestUser = () => {
   return handleResult(
@@ -87,3 +92,19 @@ export const ChangePass = payload => {
     getAxios.post('/ChangePass', payload)
   )
 }
+export const ListPost = () => {
+  return handleResult(
+    getAxios.get('ListPost')
+  );
+};
+export const ListKeyword = () => {
+  return handleResult(
+    getAxios.get('/ListKeyword')
+  );
+};
+export const GetNotification = () => {
+  return handleResult(
+    getAxios.get('/GetNotification')
+  );
+};
+

@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#69AAFF',
         marginTop: 100,
         padding: 15,
-        paddingLeft: 110
+        paddingLeft: 90
     },
     ic: {
         height: 18,

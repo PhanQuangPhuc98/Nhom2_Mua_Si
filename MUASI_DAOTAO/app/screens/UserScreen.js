@@ -10,6 +10,7 @@ import NavigationUtil from '@app/navigation/NavigationUtil'
 export class UserScreen extends Component {
     componentDidMount() {
         this.props.getUserInfo();
+
     }
 
     render() {
@@ -24,9 +25,7 @@ export class UserScreen extends Component {
             >
                 <View style={styles.header}>
                     <View style={styles.sign}>
-                        <Text style={styles.txt_sign}>
-                            NV
-                        </Text>
+                        {_hello(this.props.userState.data.fullname)}
                     </View>
                     <Text style={styles.txt_name}>
                         {this.props.userState.data.fullname}
@@ -84,7 +83,26 @@ export class UserScreen extends Component {
             </View>
         );
     }
-}
+};
+_hello = (label) => {
+    if (label == null) {
+        return <Text style={styles.txt_sign}>
+            ?
+        </Text>
+    }
+    else {
+        let Test = label.charAt(0);
+        for (let i = label.length / 2; i < label.length; i++) {
+            if (label.charAt(i) == ' ') {
+                Test += label.charAt(i + 1).toUpperCase();
+            }
+        }
+        return <Text style={styles.txt_sign}>
+            {Test}
+        </Text>
+    }
+
+};
 _PURCHASE = () => {
     NavigationUtil.navigate(SCREEN_ROUTER.PURCHASE_SCREEN)
 };
@@ -127,8 +145,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     sign: {
-        height: 90,
-        width: 90,
+        height: 100,
+        width: 100,
         borderRadius: 50,
         position: 'absolute',
         backgroundColor: '#E2E6B7',
@@ -144,20 +162,20 @@ const styles = StyleSheet.create({
     },
     txt_name: {
         marginTop: 10,
-        marginLeft: 120,
+        marginLeft: 130,
         fontSize: 21,
         fontWeight: 'bold'
     },
     txt_phone: {
         marginTop: 5,
-        marginLeft: 120,
+        marginLeft: 130,
         fontSize: 15
     },
     txt_edit: {
         width: '20%',
         height: 25,
         marginTop: 5,
-        marginLeft: 120,
+        marginLeft: 130,
         fontSize: 12,
         borderRadius: 20,
         borderWidth: 0.5,
