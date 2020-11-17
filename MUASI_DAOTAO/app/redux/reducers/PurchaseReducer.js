@@ -1,4 +1,4 @@
-import { GET_USER, GET_USER_SUCCESS, GET_USER_FAIL } from "../actions/type";
+import { GET_PUCHASE, GET_PUCHASE_SUCCESS, GET_PUCHASE_FAIL } from "../actions/type";
 
 const initialState = {
   data: {},
@@ -8,18 +8,18 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case GET_USER:
+    case GET_PUCHASE:
       return {
         ...state,
         isLoading: true,
       };
-    case GET_USER_SUCCESS:
+    case GET_PUCHASE_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        data: action.payload.data
+        data: action.payload.data,
       };
-    case GET_USER_FAIL:
+    case GET_PUCHASE_FAIL:
       return {
         ...state,
         isLoading: false,

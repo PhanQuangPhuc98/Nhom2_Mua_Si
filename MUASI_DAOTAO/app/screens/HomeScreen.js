@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet, SafeAreaView, ImageBackground, TextInput, TouchableOpacity, Image } from 'react-native'
 import { connect } from 'react-redux'
 import API from '@api'
-import Loading from '@component/Loading'
+import Loading from '../components/Loading'
 export class HomeScreen extends Component {
   state = {
     isLoading: true,
@@ -16,14 +16,14 @@ export class HomeScreen extends Component {
       // alert(JSON.stringify(jsonResponse))
       this.setState({
         isLoading: false,
-        isError: true,
+        isError: false,
         data: jsonResponse.data
       })
     } catch (error) {
       setTimeout(() => {
         this.setState({
           isLoading: false,
-          isError: true,
+          isError: false,
           data: {}
         })
       }, 5000)
@@ -31,11 +31,11 @@ export class HomeScreen extends Component {
   }
   render() {
     const { isLoading, isError, data } = this.state
-    // if (isLoading) {
-    //   return (
-    //     <Loading />
-    //   );
-    // }
+    if (isLoading) {
+      return (
+        <Loading />
+      );
+    }
     if (isError) {
       return (
         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -46,7 +46,7 @@ export class HomeScreen extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <ImageBackground
-          // source={require('../assets/images/homeAssets/quan_ly_ton_kho.png')} 
+          source={require('../assets/images/homeAssets/quan_ly_ton_kho.png')} 
           style={styles.image}>
           <Text style={styles.txtHeader}> Tôi muốn mua sỉ </Text>
           <View style={styles.searchKey}>
@@ -56,7 +56,7 @@ export class HomeScreen extends Component {
             <TouchableOpacity style={styles.dropBox}>
               <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row', }}>
                 <Text >Toàn quốc</Text>
-                {/* <Image source={require('../assets/images/homeAssets/Icon-arrow-back.png')} /> */}
+                <Image source={require('../assets/images/homeAssets/Icon-arrow-back.png')} />
               </View>
             </TouchableOpacity>
           </View>

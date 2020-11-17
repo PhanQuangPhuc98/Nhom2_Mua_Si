@@ -3,21 +3,34 @@ import {
     View,
     Text,
     SafeAreaView,
-    StatusBar,
     ActivityIndicator
 } from 'react-native'
 import NavigationUtil from '../../navigation/NavigationUtil'
 import i18 from '@i18';
+import AsyncStorage from '@react-native-community/async-storage';//lưu dữ liệu xuống ổ cứng
+import { SCREEN_ROUTER } from '@app/constants/Constant';
 
-// import { connect } from 'react-redux'
 
 export default class AuthLoadingScreen extends Component {
 
-    componentDidMount() {
-        // load something and check login
-        setTimeout(() => {
-            NavigationUtil.navigate("Login");
-        }, 200);
+    componentDidMount = async () => {
+        try {
+            const b = "$2y$10$/0pGTWB.gV9VfdP2Ky/j2OJ7gpOUArI3P55gZMjjaTlxEFyWO4WeC"
+            await AsyncStorage.setItem("token", b)
+            const token = await AsyncStorage.getItem("token")
+            if (token && token.length > 0) {
+                setTimeout(() => {
+                    NavigationUtil.navigate(SCREEN_ROUTER.HOME);
+                }, 200);
+
+            } else {
+                NavigationUtil.navigate(SCREEN_ROUTER.LOGIN);
+            }
+        } catch (error) {
+            NavigationUtil.navigate(SCREEN_ROUTER.LOGIN)
+        }
+
+
 
     }
 

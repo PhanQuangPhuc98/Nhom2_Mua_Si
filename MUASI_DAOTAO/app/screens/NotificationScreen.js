@@ -13,7 +13,7 @@ export default class NotificationScreen extends Component {
       const response = await notifyData()
       reactotron.log('API', response)
       const jsonResponse = response.data
-      // alert(JSON.stringify(response.data))
+      // alert(this.state.data(jsonResponse))
       this.setState({
         isLoading: false,
         isError: false,
@@ -42,7 +42,7 @@ export default class NotificationScreen extends Component {
           <Text style={{ fontSize: 20, fontWeight: 'Medium', color: '#FFFFFF', padding: 15 }}>Thông báo</Text>
         </View>
         <FlatList
-          data={this.state.data.listpost}
+          data={this.state.data.data}
           renderItem={({ item, index }) => {
             return (
               <View style={styles.v_view}>
@@ -51,9 +51,9 @@ export default class NotificationScreen extends Component {
                   <Text style={{
                     fontSize: 17,
                     marginLeft: 10
-                  }}>Yêu cầu tham gia nhóm của bạn đã được phê duyệt</Text>
+                  }}>{item.content}</Text>
                   <View>
-                    <Text style={{ marginLeft: 160 }}>{item.modified_date}</Text>
+                    <Text style={{ marginLeft: 160 }}>{item.created_date}</Text>
                   </View>
                   {_funtionNotify(true)}
                 </View>
