@@ -3,27 +3,15 @@ import { Text, View, StyleSheet, Image } from 'react-native'
 import * as API from '@api';
 import { connect } from 'react-redux'
 import { getPurchase, getUserInfo } from '@action';
-
+import Loading from '@app/components/Loading'
 class Purchase extends PureComponent {
-    state = {
-        isLoading: false,
-        error: null,
-        data: {},
-        page: 1,
-        type: 1
-    }
-
-    componentDidMount = async () => {
-        const result = await API.ListPost({
-            "page": this.state.page,
-            "type": this.state.type
-        });
-        this.props.getUserInfo();
+    componentDidMount() {
         this.props.getPurchase();
-        alert(JSON.stringify(result))
+
     }
 
     render() {
+        if (this.props.purchaseState.isLoading) return <Loading />;
         return (
             <View style={styles.container}>
 
@@ -35,7 +23,8 @@ class Purchase extends PureComponent {
                         resizeMode: 'contain',
                         borderBottomWidth: 0.5,
 
-                    }}> { } </Text>
+                    }}> {JSON.stringify(this.props.purchaseState.data)} </Text>
+
                     <View style={styles.sign}>
                         <Text style={{ fontSize: 12 }}>
                             MC
@@ -81,12 +70,11 @@ class Purchase extends PureComponent {
 
 const mapStateToProps = (state) => ({
     purchaseState: state.purchaseReducer,
-    userState: state.userReducer
 })
 
 const mapDispatchToProps = {
     getPurchase,
-    getUserInfo
+
 }
 
 
