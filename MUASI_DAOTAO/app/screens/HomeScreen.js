@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, SafeAreaView, ImageBackground, TextInput, Touch
 import { connect } from 'react-redux'
 import API from '@api'
 import Loading from '../components/Loading'
-
-
 export class HomeScreen extends Component {
   state = {
     isLoading: true,
@@ -12,34 +10,31 @@ export class HomeScreen extends Component {
     data: {},
   }
   componentDidMount = async () => {
-
     try {
       const response = await axios.get('http://3.0.209.176/api/GetHome');
       const jsonResponse = response
       // alert(JSON.stringify(jsonResponse))
       this.setState({
         isLoading: false,
-        isError: true,
+        isError: false,
         data: jsonResponse.data
       })
     } catch (error) {
       setTimeout(() => {
         this.setState({
           isLoading: false,
-          isError: true,
+          isError: false,
           data: {}
         })
       }, 5000)
     }
   }
-
   render() {
     const { isLoading, isError, data } = this.state
     if (isLoading) {
       return (
         <Loading />
       );
-
     }
     if (isError) {
       return (
@@ -50,7 +45,9 @@ export class HomeScreen extends Component {
     }
     return (
       <SafeAreaView style={styles.container}>
-        <ImageBackground source={require('../assets/images/homeAssets/quan_ly_ton_kho.png')} style={styles.image}>
+        <ImageBackground
+          source={require('../assets/images/homeAssets/quan_ly_ton_kho.png')} 
+          style={styles.image}>
           <Text style={styles.txtHeader}> Tôi muốn mua sỉ </Text>
           <View style={styles.searchKey}>
             <TextInput style={styles.TextInput}
@@ -117,7 +114,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'center',
-
   },
   push: {
     marginTop: 14,

@@ -68,7 +68,11 @@ export const requestHomeData = () => {
 };
 export const notifyData = (deviceID = "") => {
   return handleResult(
-    getAxios.get(`GetHome`)
+    getAxios.get(`GetNotification`,{
+      params:{
+        page:1
+      }
+    })
   );
 };
 
