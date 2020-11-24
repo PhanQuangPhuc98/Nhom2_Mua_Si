@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Text, View, StyleSheet, FlatList, SafeAreaView } from 'react-native'
-import { notifyData } from '@api'
+import { notifyData,requestHomeData} from '@api'
 import reactotron from 'reactotron-react-native'
 export default class NotificationScreen extends Component {
   state = {
@@ -13,7 +13,7 @@ export default class NotificationScreen extends Component {
       const response = await notifyData()
       reactotron.log('API', response)
       const jsonResponse = response.data
-      // alert(this.state.data(jsonResponse))
+      alert(JSON.stringify(jsonResponse))
       this.setState({
         isLoading: false,
         isError: false,
@@ -31,12 +31,10 @@ export default class NotificationScreen extends Component {
     }
   }
   _Notify() {
-
   }
   render() {
     const { isLoading, isError, data } = this.state
     return (
-      
       <View style={styles.container}>
         <View style={{ height: 55, backgroundColor: '#69AAFF' }}>
           <Text style={{ fontSize: 20, fontWeight: 'Medium', color: '#FFFFFF', padding: 15 }}>Thông báo</Text>
@@ -60,10 +58,6 @@ export default class NotificationScreen extends Component {
               </View>
             )
           }} 
-          keyExtractor={item => item.id}
-          ListFooterComponent= {this.renderFooter}
-          onEndReached={this.props.handleLoadMore}
-          onEndReachedThreshold={0}
           />
       </View>
     )
