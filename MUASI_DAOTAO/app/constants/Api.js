@@ -98,7 +98,14 @@ export const ChangePass = payload => {
 }
 export const ListPost = () => {
   return handleResult(
-    getAxios.get('ListPost')
+    getAxios.get('ListPost', {
+      params:
+      {
+        page: 1,
+        type: 1
+      }
+
+    })
   );
 };
 export const ListKeyword = () => {
