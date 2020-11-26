@@ -1,0 +1,10 @@
+diff a/MUASI_DAOTAO/app/screens/auth/AuthLoadingScreen.js b/MUASI_DAOTAO/app/screens/auth/AuthLoadingScreen.js	(rejected hunks)
+@@ -15,7 +15,7 @@
+ 
+     componentDidMount = async () => {
+         try {
+-            const b = "$2y$10$cftinBkUdeiFqdFzMniUteKxHj3CDJgGAxSiAbEG/Y4zSkhJrc1h."
++            const b = "$2y$10$8Es2x3cbtR3KuPhxIbwN5eQRHwklKB3hh04U/rP/qxvEWDtCSRldi"
+             await AsyncStorage.setItem("token", b)
+             const token = await AsyncStorage.getItem("token")
+             if (token && token.length > 0) {
