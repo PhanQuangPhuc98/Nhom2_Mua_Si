@@ -67,9 +67,9 @@ export const requestHomeData = () => {
 };
 export const notifyData = (deviceID = "") => {
   return handleResult(
-    getAxios.get(`GetNotification`,{
-      params:{
-        page:1
+    getAxios.get(`GetNotification`, {
+      params: {
+        page: 1
       }
     })
   );
@@ -116,4 +116,9 @@ export const GetNotification = () => {
     getAxios.get('/GetNotification')
   );
 };
+export const UpdateStatus = payload => {
+  return handleResult(
+    getAxios.post('/UpdateStatusPost', payload)
+  )
+}
 

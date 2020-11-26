@@ -1,8 +1,8 @@
 const images = {
-    
+
     // homeAssets: require("./images/homeAssets"),
-    ic_add: require("./images/ic_add.png"),
-    ic_adrees: require("./images/ic_adrees.png"),
+    //ic_add: require("./images/ic_add.png"),
+    //ic_adrees: require("./images/ic_adrees.png"),
     ic_arrowback_white: require("./images/ic_arrowback_white.png"),
     ic_awesome: require("./images/ic_awesome.png"),
     ic_back: require("./images/ic_back.png"),
@@ -21,8 +21,10 @@ const images = {
     ic_success: require("./images/ic_success.png"),
     ic_user: require("./images/ic_user.png"),
     img_arrow: require("./images/img_arrow.png"),
-    img_Asset: require("./images/img_Asset.png"),
-    img_Group: require("./images/img_Group.png"),
-    img_splash: require("./images/img_splash.png")
-    }
+    ic_add: require("./images/ic_add.png"),
+    ic_arrowback_white: require("./images/ic_arrowback_white.png"),
+    ic_featheredit: require("./images/ic_featheredit.png"),
+    ic_adress: require("./images/ic_addres.png"),
+    ic_oclock: require("./images/ic_oclock.png"),
+}
 export default images

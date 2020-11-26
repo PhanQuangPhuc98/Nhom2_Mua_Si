@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
 import UserReducer from "./UserReducer";
-import PurchaseReducer from './PurchaseReducer'
+import PurchaseReducer from './PurchaseReducer';
+
 import { RESET } from "../actions/type";
 
 
 appReducer = combineReducers({
   userReducer: UserReducer,
-  purchaseReducer: PurchaseReducer
+  purchaseReducer: PurchaseReducer,
+
 });
 
 const initialState = appReducer({}, {})
