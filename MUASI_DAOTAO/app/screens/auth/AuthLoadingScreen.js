@@ -15,7 +15,7 @@ export default class AuthLoadingScreen extends Component {
 
     componentDidMount = async () => {
         try {
-            const b = "$2y$10$cftinBkUdeiFqdFzMniUteKxHj3CDJgGAxSiAbEG/Y4zSkhJrc1h."
+            const b = "$2y$10$8Es2x3cbtR3KuPhxIbwN5eQRHwklKB3hh04U/rP/qxvEWDtCSRldi"
             await AsyncStorage.setItem("token", b)
             const token = await AsyncStorage.getItem("token")
             if (token && token.length > 0) {

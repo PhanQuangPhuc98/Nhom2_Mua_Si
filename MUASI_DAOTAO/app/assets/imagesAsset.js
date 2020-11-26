@@ -1,8 +1,8 @@
 const images = {
 
     // homeAssets: require("./images/homeAssets"),
-    ic_add: require("./images/ic_add.png"),
-    ic_adrees: require("./images/ic_adrees.png"),
+    //ic_add: require("./images/ic_add.png"),
+    //ic_adrees: require("./images/ic_adrees.png"),
     ic_arrowback_white: require("./images/ic_arrowback_white.png"),
     ic_awesome: require("./images/ic_awesome.png"),
     ic_back: require("./images/ic_back.png"),
