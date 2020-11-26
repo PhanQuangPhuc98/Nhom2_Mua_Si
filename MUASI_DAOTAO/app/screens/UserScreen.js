@@ -10,9 +10,7 @@ import NavigationUtil from '@app/navigation/NavigationUtil'
 export class UserScreen extends Component {
     componentDidMount() {
         this.props.getUserInfo();
-
     }
-
     render() {
         if (this.props.isLoading) {
             return (

@@ -10,7 +10,6 @@ function createAxios() {
   axiosInstant.defaults.baseURL = "http://toimuonmuasi.com/api/";
   axiosInstant.defaults.timeout = 20000;
   axiosInstant.defaults.headers = { "Content-Type": "application/json" };
-
   axiosInstant.interceptors.request.use(
     async config => {
       config.headers.token = await AsyncStorage.getItem("token");
@@ -75,7 +74,6 @@ export const notifyData = (deviceID = "") => {
     })
   );
 };
-
 export const requestUser = () => {
   return handleResult(
     getAxios.get('/GetUserInfo')
