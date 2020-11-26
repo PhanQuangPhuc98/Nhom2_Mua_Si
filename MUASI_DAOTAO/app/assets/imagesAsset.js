@@ -19,7 +19,7 @@ const images = {
     ic_add: require("./images/ic_add.png"),
     ic_arrowback_white: require("./images/ic_arrowback_white.png"),
     ic_featheredit: require("./images/ic_featheredit.png"),
-    ic_adress: require("./images/ic_adrees.png"),
+    ic_adress: require("./images/ic_addres.png"),
     ic_oclock: require("./images/ic_oclock.png"),
 }
 export default images

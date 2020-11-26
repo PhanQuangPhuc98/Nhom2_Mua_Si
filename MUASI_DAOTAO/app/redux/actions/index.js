@@ -1,6 +1,6 @@
 import {
   GET_USER,
-  GET_PUCHASE
+  GET_PUCHASE,
 } from "./type";
 
 export const getUserInfo = data => ({
